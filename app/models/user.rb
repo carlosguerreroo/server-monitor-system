@@ -7,4 +7,10 @@ class User < ActiveRecord::Base
   validates :username, length: { minimum: 6 }
 
   has_secure_password
+
+  has_many :session_tokens
+
+  def generate_session_token
+    session_tokens.create.token
+  end
 end
