@@ -1,0 +1,14 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - Rakefile
+    - config.ru
+    - Gemfile
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
