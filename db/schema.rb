@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204052605) do
+ActiveRecord::Schema.define(version: 20161204055350) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "process_report_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "name"
   end
 
   add_index "activities", ["process_report_id"], name: "index_activities_on_process_report_id"
