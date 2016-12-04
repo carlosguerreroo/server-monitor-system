@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :manager do
     root to: 'servers#index', as: :root
     resource :profile, only: [:show]
+    get :requests, to: 'servers#requests'
+    post 'accept/:id', to: 'servers#accept', as: :accept_request
     resources :servers, only: [:index] do
       resources :disk_reports, only: [:index]
       resources :notifications, only: [:index] do
