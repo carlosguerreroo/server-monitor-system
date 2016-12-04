@@ -16,11 +16,23 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
-  gem 'pry'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   gem 'rubocop', '~> 0.46.0', require: false
   gem 'spring'
   gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit', require: false
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
 end
