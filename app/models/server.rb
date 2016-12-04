@@ -8,6 +8,7 @@ class Server < ActiveRecord::Base
 
   has_many :disk_reports
   has_many :process_reports
+  has_many :notifications
 
   validates :name, :status, :last_connection, :user, presence: true
 

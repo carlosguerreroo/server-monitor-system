@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204171824) do
+ActiveRecord::Schema.define(version: 20161204192418) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "process_report_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20161204171824) do
   end
 
   add_index "disk_reports", ["server_id"], name: "index_disk_reports_on_server_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "notification_type"
+    t.integer  "status"
+    t.integer  "server_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "notifications", ["server_id"], name: "index_notifications_on_server_id"
 
   create_table "process_reports", force: :cascade do |t|
     t.integer  "server_id"

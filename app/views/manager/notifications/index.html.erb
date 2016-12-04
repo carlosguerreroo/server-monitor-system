@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Notification Manager</h1>
+
+      <%= simple_form_for manager_server_notifications_path(params[:server_id]) do %>
+
+        <%= @notification.each do |notification| %>
+            <%= notification.name %>
+            <%= notification.status %>
+            <%= notification.type %>
+        <% end %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -7,9 +7,9 @@ module Manager
         format.html
         format.pdf do
           pdf = ActivityReportPdf.new(process_report.activities)
-          send_data pdf.render, filename: "#{process_report.id}-activities-report",
-                                type: 'application/pdf',
-                                disposition: 'inline'
+          send_data pdf.render,
+                    filename: "#{process_report.id}-activities-report",
+                    type: 'application/pdf', disposition: 'inline'
         end
       end
     end

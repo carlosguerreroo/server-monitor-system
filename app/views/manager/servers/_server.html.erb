@@ -2,6 +2,7 @@
   <div class="card">
     <span class="label label-success pull-right">Activo</span>
     <h4><%= server.name %></h3>
+    <%= link_to 'Manage notifications', manager_server_notifications_path(server) %>
     <div><b>LAST CONNECTION :</b> <%= server.last_connection %></div>
     <div><b>CPU USAGE :</b> <%= server.cpu_usage %></div>
     <div>
