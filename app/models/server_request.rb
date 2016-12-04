@@ -10,7 +10,7 @@ class ServerRequest < ActiveRecord::Base
 
   before_validation :generate_token, on: :create
 
-  enum :status [:pending, :rejected, :accepted]
+  enum status: [:pending, :rejected, :accepted]
 
   private
 
