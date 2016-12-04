@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204165227) do
+ActiveRecord::Schema.define(version: 20161204171824) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "process_report_id"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20161204165227) do
     t.datetime "updated_at",        null: false
     t.string   "name"
     t.integer  "cpu_time"
-    t.integer  "cpu_usage"
+    t.float    "cpu_usage"
   end
 
   add_index "activities", ["process_report_id"], name: "index_activities_on_process_report_id"

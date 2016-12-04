@@ -13,9 +13,8 @@ class Server < ActiveRecord::Base
 
   enum status: [:online, :offline]
 
-
   def last_disk_report
-    ram_reports.last
+    disk_reports.last
   end
 
   def last_process_report

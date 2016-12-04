@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :manager do
     root to: 'servers#index', as: :root
     resource :profile, only: [:show]
-    resources :servers, only: [:index]
+    resources :servers, only: [:index] do
+      resources :disk_reports, only: [:index]
+    end
   end
 end
