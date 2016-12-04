@@ -3,6 +3,7 @@
 # status:integer
 # last_connection:datetime
 # user_id:integer
+# token:string
 class Server < ActiveRecord::Base
   belongs_to :user
 
@@ -10,7 +11,7 @@ class Server < ActiveRecord::Base
   has_many :process_reports
   has_many :notifications
 
-  validates :name, :status, :last_connection, :user, presence: true
+  validates :name, :status, :last_connection, :user, :token, presence: true
 
   enum status: [:online, :offline]
 

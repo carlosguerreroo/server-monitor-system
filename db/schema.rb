@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204192418) do
+ActiveRecord::Schema.define(version: 20161204212455) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "process_report_id"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20161204192418) do
 
   add_index "process_reports", ["server_id"], name: "index_process_reports_on_server_id"
 
+  create_table "server_requests", force: :cascade do |t|
+    t.string   "server_name"
+    t.string   "token"
+    t.integer  "status"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "server_requests", ["user_id"], name: "index_server_requests_on_user_id"
+
   create_table "servers", force: :cascade do |t|
     t.string   "name"
     t.integer  "status"
@@ -60,6 +71,7 @@ ActiveRecord::Schema.define(version: 20161204192418) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "token"
   end
 
   add_index "servers", ["user_id"], name: "index_servers_on_user_id"
