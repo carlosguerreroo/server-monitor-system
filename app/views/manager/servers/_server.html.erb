@@ -8,6 +8,10 @@
       <b>DISK USAGE :</b> <%= server.disk_usage %>
       <%= link_to '(details)', manager_server_disk_reports_path(server) %>
     </div>
-    <div><b>PROCCESS RUNNING:</b> <%= server.process_running %></div>
+    <div>
+      <b>PROCCESS RUNNING:</b>
+      <%= server.process_running %>
+      <%= link_to '(details)', manager_server_process_reports_path(server) %>
+    </div>
   </div>
 </div>

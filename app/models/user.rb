@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :session_tokens
   has_many :servers
+  has_many :process_reports, through: :servers
 
   before_validation :generate_server_key, on: :create
 
