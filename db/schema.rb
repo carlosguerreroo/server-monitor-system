@@ -11,7 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203183628) do
+ActiveRecord::Schema.define(version: 20161204052605) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "process_report_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "activities", ["process_report_id"], name: "index_activities_on_process_report_id"
+
+  create_table "disk_reports", force: :cascade do |t|
+    t.integer  "total"
+    t.integer  "used"
+    t.integer  "server_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "disk_reports", ["server_id"], name: "index_disk_reports_on_server_id"
+
+  create_table "process_reports", force: :cascade do |t|
+    t.integer  "server_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "process_reports", ["server_id"], name: "index_process_reports_on_server_id"
+
+  create_table "ram_reports", force: :cascade do |t|
+    t.integer  "total"
+    t.integer  "used"
+    t.integer  "server_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ram_reports", ["server_id"], name: "index_ram_reports_on_server_id"
+
+  create_table "servers", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "last_connection"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "servers", ["user_id"], name: "index_servers_on_user_id"
 
   create_table "session_tokens", force: :cascade do |t|
     t.string   "token"
