@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204153237) do
+ActiveRecord::Schema.define(version: 20161204165227) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "process_report_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "name"
+    t.integer  "cpu_time"
+    t.integer  "cpu_usage"
   end
 
   add_index "activities", ["process_report_id"], name: "index_activities_on_process_report_id"
@@ -39,16 +41,6 @@ ActiveRecord::Schema.define(version: 20161204153237) do
   end
 
   add_index "process_reports", ["server_id"], name: "index_process_reports_on_server_id"
-
-  create_table "ram_reports", force: :cascade do |t|
-    t.integer  "total"
-    t.integer  "used"
-    t.integer  "server_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "ram_reports", ["server_id"], name: "index_ram_reports_on_server_id"
 
   create_table "servers", force: :cascade do |t|
     t.string   "name"
