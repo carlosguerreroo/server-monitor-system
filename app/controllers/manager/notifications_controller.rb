@@ -5,6 +5,12 @@ module Manager
       @notifications = notifications
     end
 
+    def update
+      notifications
+        .update(params[:notifications].keys, params[:notifications].values)
+      redirect_to manager_server_notifications_path(params[:server_id])
+    end
+
     private
 
     def notifications

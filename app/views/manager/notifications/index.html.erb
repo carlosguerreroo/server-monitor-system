@@ -1,18 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4 col-md-offset-4">
       <h1>Notification Manager</h1>
 
-      <%= simple_form_for manager_server_notifications_path(params[:server_id]) do %>
+      <%= simple_form_for manager_server_notifications_path(params[:server_id]),
+                          method: :PUT do  |f|%>
+        <% @notifications.each do |notification| %>
+            <div class="card">
+              <h4><%= notification.name %></h4>
+              <%= fields_for "notifications[]", notification do |p| %>
 
-        <%= @notification.each do |notification| %>
-            <%= notification.name %>
-            <%= notification.status %>
-            <%= notification.type %>
+                <%= p.label 'activated' %>
+                <%= p.radio_button :status, :activated %>
+                <br>
+                <%= p.label 'deactivated' %>
+                <%= p.radio_button :status, :deactivated %>
+              <% end %>
+            </div>
         <% end %>
-
+        <%= f.submit 'Update Notifications',
+                      class: 'btn btn-default pull-right' %>
       <% end %>
-
     </div>
   </div>
 </div>

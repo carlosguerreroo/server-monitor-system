@@ -12,9 +12,9 @@ namespace :seed do
     server_linux.disk_reports.create(total: 2040, used: 11200)
     server_linux.disk_reports.create(total: 2040, used: 1000)
 
-    server_linux.notifications.create(name: 'MAX CPU',
+    server_linux.notifications.create!(name: 'MAX CPU',
       status: :actived, notification_type: :max_cpu)
-    server_linux.notifications.create(name: 'MAX PROCESS',
+    server_linux.notifications.create!(name: 'MAX PROCESS',
       status: :actived, notification_type: :max_process)
 
     linux_process_report = server_linux.process_reports.create

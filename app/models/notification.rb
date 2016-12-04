@@ -1,13 +1,13 @@
 # Notification model class
 # name:string
-# type:integer
+# notification_type:integer
 # status:integer
 # server_id:integer
 class Notification < ActiveRecord::Base
   belongs_to :server
 
-  validates :name, :type, :status, :server, presence: true
+  validates :name, :notification_type, :status, :server, presence: true
 
-  enum status: [:actived, :deactivated]
-  enum type: [:max_cpu, :max_process]
+  enum status: [:activated, :deactivated]
+  enum notification_type: [:max_cpu, :max_process]
 end
