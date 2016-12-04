@@ -17,4 +17,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+
+  mount MonitorSystem::API => '/'
 end
