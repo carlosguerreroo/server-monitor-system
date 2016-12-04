@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
 
   namespace :manager do
-    root to: 'welcome#index', as: :root
+    root to: 'servers#index', as: :root
+    resource :profile, only: [:show]
+    resources :servers, only: [:index]
   end
 end

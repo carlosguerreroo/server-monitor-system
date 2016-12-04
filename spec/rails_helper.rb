@@ -40,7 +40,6 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-
 RSpec.configure do |config|
   config.mock_with :rspec
   config.order = 'random'

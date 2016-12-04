@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
   def current_user
     SessionToken.user(session[:user_token])
   end
+
+  helper_method :current_user
 end
