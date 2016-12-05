@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group pull-right" role="group">
+          <%= link_to 'Download',
+                      manager_process_report_activities_path(params[:process_report_id], format: :pdf),
+                      class: 'btn btn-success' %>
+      </div>
+      <h1>Activities Information</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>CPU Time</th>
+            <th>CPU Usage</th>
+          </tr>
+        </thead>
+        <%= render @activities %>
+      </table>
+    </div>
+  </div>
+</div>
