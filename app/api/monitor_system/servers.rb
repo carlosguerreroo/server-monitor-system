@@ -7,10 +7,9 @@ module MonitorSystem
     resource :servers do
       desc 'New server request from agent'
       post do
-        user = User.find_by_server_key(params[:server_key])
-        user
+        current_user
           .server_requests
-          .create!(server_name: params[:name], status: :pending)
+          .create!(server_name: params[:server_name], status: :pending)
       end
     end
   end
